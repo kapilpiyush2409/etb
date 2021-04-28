@@ -1,0 +1,32 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <div th:replace="header_main :: head"></div>
+        <title></title>
+        <link th:href="@{/css/style_userInfoDisplay.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="header_main :: header"></div>
+        <h1 id="heading">Your Uploaded Pics</h1>
+        <main class="grid">
+            <images th:each="data : ${allData}">
+                <article>
+                    <div class="text">
+                        <h3 id="imgName" th:text="${data.userName}"></h3>
+                        <p id="desc" class="info" th:text="${data.age}"></p>
+                        <p class="info"><u>Tags</u>: <span th:text="${data.email}"></span></p>
+                        <p id="postDate" class="info"><u>Posted On</u>:&nbsp;&nbsp;<span th:text="${data.address}"></span></p>
+                        <p><u>Updated On</u>:&nbsp;&nbsp;<span th:text="${data.mobileNumber}"></span></p>
+                    </div>
+                    <div id="buttons">
+                        <a th:href="@{/userInfoUpdate(userId=${data.id})}"><button id="btn1">Update Pic</button></a>
+                        <form  th:action="@{/deleteUser(userId=${data.id})}" th:method="delete">
+                            <button type="submit" id="btn2">Delete user</button>
+                        </form>
+                    </div>
+                </article>
+            </images>
+        </main>
+    </body>
+    <div th:replace="header_main :: foot"></div>
+</html>

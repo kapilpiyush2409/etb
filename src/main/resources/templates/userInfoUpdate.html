@@ -1,0 +1,31 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <div th:replace="header_main :: head"></div>
+        <title>Data Collection App By Hritvik</title>
+        <link th:href="@{/css/style_userInfoAdd.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="header_main :: header"></div>
+        <h1 id="heading">Update</h1>
+        <form id="form" th:method="put" th:object="${data}" th:action="@{/userInfoUpdate(userId=${data.id})}">
+            <label for="userName">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" th:value="${data.userName}" id="userName" name="userName" required /><br><br>
+
+            <label for="age">Age:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" th:value="${data.age}" id="age" name="age" required /><br><br>
+
+            <label for="email">Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email" th:value="${data.email}" id="email" name="email" required /><br><br>
+
+            <label for="mobileNumber">Mobile No:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" th:value="${data.mobileNumber}" id="mobileNumber" name="mobileNumber" required /><br><br>
+
+            <label for="address">Address:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" th:value="${data.address}" id="address" name="address" /><br/><br/><br>
+
+            <input id="sub" type="submit" value="update" />
+        </form>
+    </body>
+    <div th:replace="header_main :: foot"></div>
+</html>
