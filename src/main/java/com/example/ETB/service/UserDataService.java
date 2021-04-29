@@ -2,8 +2,6 @@ package com.example.ETB.service;
 
 import com.example.ETB.model.UserData;
 import com.example.ETB.repository.UserDataRepository;
-import com.example.ETB.model.UserData;
-import com.example.ETB.repository.UserDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

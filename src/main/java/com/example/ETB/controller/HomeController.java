@@ -1,7 +1,6 @@
 package com.example.ETB.controller;
 
 import com.example.ETB.model.UserData;
-
 import com.example.ETB.service.UserDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,25 +19,24 @@ public class HomeController {
 
     @RequestMapping(value = "/")
     public String Home() {
-        return "redirect:/userinfoAdd";
+        return "redirect:/userInfoAdd";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/userinfoAdd")
+    @RequestMapping(method = RequestMethod.GET, value = "/userInfoAdd")
     public String signup(Model model) {
         UserData userData = new UserData();
         model.addAttribute("userData", userData);
         return "/userInfoAdd";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/userinfoAdd")
+    @RequestMapping(method = RequestMethod.POST, value = "/userInfoAdd")
     public String signupUser(UserData user) {
         userDataService.addUser(user);
-        return "redirect:/userInfodisplay";
+        return "redirect:/userInfoDisplay";
     }
 
-    @RequestMapping(value = "/userinfoDisplay")
-    public String Home(Model model)
-    {
+    @RequestMapping(value = "/userInfoDisplay")
+    public String Home(Model model) {
         List<UserData> data = userDataService.getAllData();
         model.addAttribute("allData", data);
         return "userInfoDisplay";
@@ -47,14 +45,14 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/deleteUser")
     public String deleteuser(@RequestParam(name = "userId") Integer userId) {
         userDataService.deleteuser(userId);
-        return "redirect:/userInfodisplay";
+        return "redirect:/userInfoDisplay";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/userInfoUpdate")
     public String getData(@RequestParam(name = "userId") Integer userId, Model model) {
         UserData data = userDataService.getusrData(userId);
         model.addAttribute("data", data);
-        return "userInfoupdate";
+        return "userInfoUpdate";
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/userInfoUpdate")

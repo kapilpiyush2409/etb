@@ -1,6 +1,5 @@
 package com.example.ETB.repository;
 
-
 import com.example.ETB.model.UserData;
 import org.springframework.stereotype.Repository;
 
