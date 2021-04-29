@@ -5,9 +5,10 @@
         <title>Web Project by PIYUSH</title>
         <link th:href="@{/css/style_userInfoAdd.css}" rel="stylesheet">
     </head>
-    <body>
+    <body style="{text-align: center}">
+
         <div th:replace="header_main :: header"></div>
-        <h1 id="heading">SignUp</h1>
+        <h1 id="heading">Enter Required Information</h1>
         <form id="form" method="post" th:object="${userData}" th:action="@{/userInfoAdd}">
             <label for="userName">Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" th:field="${userData.userName}" id="userName" name="userName" required /><br><br>
@@ -26,6 +27,7 @@
 
             <input id="sub" type="submit" value="SignUp" />
         </form>
+
     </body>
     <div th:replace="header_main :: foot"></div>
 </html>
